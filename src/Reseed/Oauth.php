@@ -82,7 +82,7 @@ class Oauth
                 cli($res->response);
 
                 $rs = json_decode($res->response, true);
-                if (isset($rs['ret']) && ($rs['ret'] === 200) && isset($rs['data']['success']) && $rs['data']['success']) {
+                if (isset($rs['ret']) && ($rs['ret'] === 200)) {
                     self::setSiteLoginCache($site, $rs);
                     $ret = true;
                 } else {
