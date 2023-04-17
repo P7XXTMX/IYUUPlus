@@ -1,0 +1,18 @@
+version: 2.1
+
+jobs:
+ build:
+   machine:
+    image: ubuntu-2204:2022.04.2
+   steps:
+     - checkout
+     # start proprietary DB using private Docker image
+     # with credentials stored in the UI
+     - run: |
+         echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+
+     # build the application image
+     - run: docker build -t $DOCKER_USER/iyuuplus:v1 docker/
+
+     # deploy the image
+     - run: docker push $DOCKER_USER/iyuuplus:v1
