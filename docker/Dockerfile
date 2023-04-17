@@ -1,7 +1,5 @@
 FROM alpine:latest
 
-LABEL maintainer="david <367013672@qq.com>" version="2.0"
-
 ##
 # ---------- env settings ----------
 ##
@@ -77,9 +75,8 @@ RUN set -ex \
         php7-zip \
         php7-zlib \
         php7-xml \
-        && git clone https://github.com/ledccn/IYUUPlus.git /IYUU \
+        && git clone https://github.com/P7XXTMX/IYUUPlus.git /IYUU \
         # && git clone https://gitee.com/ledc/iyuuplus.git /IYUU \
-        && git remote set-url origin https://gitee.com/ledc/iyuuplus.git \
         && git config --global pull.ff only \
         && apk del --purge *-dev \
         # install latest composer
